@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dn53ex2txh7gw"]
+
+[ext_resource type="Script" uid="uid://cqqudjm2bodpj" path="res://scripts/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://b3qeigs4748pu" path="res://assets/sprites/player/player_idle.png" id="2_dqkch"]
+[ext_resource type="Texture2D" uid="uid://cyvcxu7xi1ryq" path="res://assets/sprites/player/player_walk_down.png" id="3_qlg0r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkrti"]
+atlas = ExtResource("2_dqkch")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xubko"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt84g"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj0lk"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlgmb"]
+atlas = ExtResource("3_qlg0r")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bhunq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkrti")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xubko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt84g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj0lk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlgmb")
+}],
+"loop": 1,
+"name": &"walk_down",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
+size = Vector2(12, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+
+[node name="Player" type="CharacterBody2D" unique_id=2003996241]
+script = ExtResource("1_qhqgy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2114307387]
+sprite_frames = SubResource("SpriteFrames_bhunq")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=373087937]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_riqys")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2069564272]
+zoom = Vector2(3, 3)
+
+[node name="CollisionArea2D" type="Area2D" parent="." unique_id=837712548]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea2D" unique_id=1468915869]
+visible = false
+shape = SubResource("RectangleShape2D_bhunq")

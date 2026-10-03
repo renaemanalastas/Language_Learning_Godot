@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bj8f3ihnr2waf"]
+
+[ext_resource type="Texture2D" uid="uid://bjcsv7mrh7dee" path="res://assets/objects/desk.png" id="1_em11a"]
+[ext_resource type="Script" uid="uid://d4ghpa8v2ju2a" path="res://scripts/object_interact.gd" id="2_e7kfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f8o3"]
+size = Vector2(14, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr0ht"]
+size = Vector2(20, 26)
+
+[node name="Desk" type="StaticBody2D" unique_id=2110759831]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=317063795]
+position = Vector2(-8, 1)
+texture = ExtResource("1_em11a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=873007470]
+position = Vector2(-8, 1)
+shape = SubResource("RectangleShape2D_6f8o3")
+
+[node name="ObjInteractArea" type="Area2D" parent="." unique_id=1933434000]
+script = ExtResource("2_e7kfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjInteractArea" unique_id=1867666841]
+position = Vector2(-8, 1)
+shape = SubResource("RectangleShape2D_qr0ht")
