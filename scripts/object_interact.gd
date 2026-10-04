@@ -1,5 +1,5 @@
 extends Area2D
-class_name Object_Item;
+class_name Object_Interact;
 
 @export var player : Player
 #@onready var object = $Sprite2D
@@ -17,4 +17,8 @@ func _process(delta: float) -> void:
 
 func enable_interact(node: Node) -> void:
 	print("interact")
+	pass
+
+# show object's name in japanese etc
+func show_object() -> void:
 	pass
