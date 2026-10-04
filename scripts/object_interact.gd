@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func enable_interact(node: Node) -> void:
+func enable_interact(_node: Node) -> void:
 	print("interact")
 	pass
 

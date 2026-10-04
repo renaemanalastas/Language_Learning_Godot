@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dj5p7d7553gul"]
+
+[ext_resource type="Script" uid="uid://doj1w6iowjbod" path="res://scripts/object.gd" id="1_7o75n"]
+[ext_resource type="Texture2D" uid="uid://bokg56q42km1q" path="res://assets/sprites/objects/chair.png" id="2_tggnc"]
+[ext_resource type="Script" uid="uid://d4ghpa8v2ju2a" path="res://scripts/object_interact.gd" id="3_rf8lv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhunq"]
+size = Vector2(10, 15)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riqys"]
+size = Vector2(20, 13)
+
+[node name="Chair" type="StaticBody2D" unique_id=1496624687]
+script = ExtResource("1_7o75n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2089021663]
+texture = ExtResource("2_tggnc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1073492728]
+visible = false
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_bhunq")
+
+[node name="ObjInteractionArea" type="Area2D" parent="." unique_id=701584584]
+script = ExtResource("3_rf8lv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjInteractionArea" unique_id=477682672]
+visible = false
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_riqys")
